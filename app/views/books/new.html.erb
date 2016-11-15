@@ -1,6 +1,10 @@
 <%= render 'nav' %>
 <div class="container-fluid">
-  <h1>Add a Book</h1>
+
+  <h3>Add a Book</h3>
+  <% @book.errors.full_messages.each do |error| %>
+    <%= error %>
+  <% end %>
   <%= form_tag books_path do %>
     <div class="form-group">
       <%= label_tag 'book[name]', 'Book Title' %>
@@ -8,18 +12,18 @@
     </div>
 
     <div class="form-group">
+      <%= label_tag 'book[author]', 'Author' %>
+      <%= text_field_tag 'book[author]', @book.author, class: "form-control"  %>
+    </div>
+
+    <div class="form-group">
       <%= label_tag 'book[description]', 'Description' %>
-      <%= text_field_tag 'book[description]', @book.description, class: "form-control"  %>
+      <%= text_area_tag 'book[description]', @book.description, class: "form-control"  %>
     </div>
 
     <div class="form-group">
       <%= label_tag 'book[isbn_number]', 'ISBN Number' %>
       <%= text_field_tag 'book[isbn_number]', @book.isbn_number, class: "form-control"  %>
-    </div>
-
-    <div class="form-group">
-      <%= label_tag 'book[author]', 'Author' %>
-      <%= text_field_tag 'book[author]', @book.author, class: "form-control"  %>
     </div>
 
     <%= submit_tag "Save", class: "btn btn-primary" %>

@@ -11,6 +11,12 @@
         <li>
           <%= link_to "New Book", books_new_path %>
         </li>
+        <li>
+          <a><%= form_tag search_books_path do %>
+            <%= text_field_tag 'q' %>
+            <%= submit_tag "Search library", class: "btn btn-primary btn-xs" %>
+          <% end %></a>
+        </li>
       </ul>
     </header>
   </div>

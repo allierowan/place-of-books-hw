@@ -1,6 +1,9 @@
 <%= render 'nav' %>
 <div class="container-fluid">
   <h1>Edit this Book</h1>
+  <% @book.errors.full_messages.each do |error| %>
+    <%= error %>
+  <% end %>
   <%= form_tag update_book_path(@book.id), method: :patch do %>
   <div class="form-group">
     <%= label_tag 'book[name]', 'Book Title' %>
@@ -8,8 +11,13 @@
   </div>
 
   <div class="form-group">
+    <%= label_tag 'book[author]', 'Author' %>
+    <%= text_field_tag 'book[author]', @book.author, class: "form-control"  %>
+  </div>
+
+  <div class="form-group">
     <%= label_tag 'book[description]', 'Description' %>
-    <%= text_field_tag 'book[description]', @book.description, class: "form-control"  %>
+    <%= text_area_tag 'book[description]', @book.description, class: "form-control"  %>
   </div>
 
   <div class="form-group">
@@ -17,10 +25,6 @@
     <%= text_field_tag 'book[isbn_number]', @book.isbn_number, class: "form-control"  %>
   </div>
 
-  <div class="form-group">
-    <%= label_tag 'book[author]', 'Author' %>
-    <%= text_field_tag 'book[author]', @book.author, class: "form-control"  %>
-  </div>
     <%= submit_tag "Save", class: "btn btn-primary"%>
   <% end %>
 </div>

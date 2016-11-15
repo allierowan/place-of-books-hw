@@ -22,7 +22,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   test "can view specific book" do
     enders_game = Book.create!(name: "Ender's Game", description: "My fave")
     get book_path(enders_game.id)
-    assert_match(/You picked.../, response.body)
+    assert_match(/Edit this book/, response.body)
   end
 
   test "can edit a specific book" do
@@ -35,6 +35,13 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     enders_game = Book.create!(name: "Ender's Game", description: "My fave")
     delete delete_book_path(enders_game.id)
     refute Book.find_by(id: enders_game.id)
+  end
+
+  test "can search for a book by title" do
+    Book.create!(name: "Ender's Game", description: "My fave")
+    post search_books_path params: { q: "Ender" }
+    assert_response :redirect
+    assert_match(/Ender\'s/, response.body)
   end
 
 end

@@ -1,7 +1,7 @@
 <%= render 'nav' %>
 <div class="container-fluid">
   <% @books.each do |book| %>
-    <h3><%= link_to book.name, book_path(book.id)%></h3>
+    <h4><%= link_to book.name, book_path(book.id)%></h4>
     <h5><%= book.author %></h5>
     <p class="well">
       <%= book.description %>
