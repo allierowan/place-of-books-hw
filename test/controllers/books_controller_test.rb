@@ -40,8 +40,8 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   test "can search for a book by title" do
     Book.create!(name: "Ender's Game", description: "My fave")
     post search_books_path params: { q: "Ender" }
-    assert_response :redirect
-    assert_match(/Ender\'s/, response.body)
+    assert_response :success
+    assert_match(/Ender/, response.body)
   end
 
 end
