@@ -25,4 +25,10 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     assert_match(/You picked.../, response.body)
   end
 
+  test "can edit a specific book" do
+    enders_game = Book.create!(name: "Ender's Game", description: "My fave")
+    patch book_path(enders_game.id), params: { book: { description: "It's really good" } }
+    assert_equal "It's really good", Book.last.description
+  end
+
 end

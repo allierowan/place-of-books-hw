@@ -1,6 +1,6 @@
 <h1>Library</h1>
 <% @books.each do |book| %>
-  <h3><%= book.name %></h3>
+  <h3><%= link_to book.name, book_path(book.id)%></h3>
   <p>
     <%= book.description %>
   </p>
