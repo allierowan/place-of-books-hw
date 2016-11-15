@@ -1,13 +1,16 @@
-<h1>Edit this Book</h1>
-<%= form_tag update_book_path(@book.id), method: :patch do %>
-  <%= label_tag 'book[name]', 'Book Title' %>
-  <%= text_field_tag 'book[name]', @book.name %>
+<%= render 'nav' %>
+<div class="container-fluid">
+  <h1>Edit this Book</h1>
+  <%= form_tag update_book_path(@book.id), method: :patch do %>
+    <%= label_tag 'book[name]', 'Book Title' %>
+    <%= text_field_tag 'book[name]', @book.name %>
 
-  <%= label_tag 'book[description]', 'Description' %>
-  <%= text_field_tag 'book[description]', @book.description  %>
+    <%= label_tag 'book[description]', 'Description' %>
+    <%= text_field_tag 'book[description]', @book.description  %>
 
-  <%= label_tag 'book[isbn_number]', 'ISBN Number' %>
-  <%= text_field_tag 'book[isbn_number]', @book.isbn_number  %>
+    <%= label_tag 'book[isbn_number]', 'ISBN Number' %>
+    <%= text_field_tag 'book[isbn_number]', @book.isbn_number  %>
 
-  <%= submit_tag "Save" %>
-<% end %>
+    <%= submit_tag "Save", class: "btn btn-primary"%>
+  <% end %>
+</div>
