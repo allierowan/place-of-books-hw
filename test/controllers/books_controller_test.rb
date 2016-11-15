@@ -19,4 +19,10 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     assert_equal "Ender's Game", Book.last.name
   end
 
+  test "can view specific book" do
+    enders_game = Book.create!(name: "Ender's Game", description: "My fave")
+    get book_path(enders_game.id)
+    assert_match(/You picked.../, response.body)
+  end
+
 end
