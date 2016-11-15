@@ -2,15 +2,26 @@
 <div class="container-fluid">
   <h1>Add a Book</h1>
   <%= form_tag books_path do %>
-    <%= label_tag 'book[name]', 'Book Title' %>
-    <%= text_field_tag 'book[name]', @book.name %>
+    <div class="form-group">
+      <%= label_tag 'book[name]', 'Book Title' %>
+      <%= text_field_tag 'book[name]', @book.name, class: "form-control" %>
+    </div>
 
-    <%= label_tag 'book[description]', 'Description' %>
-    <%= text_field_tag 'book[description]', @book.description  %>
+    <div class="form-group">
+      <%= label_tag 'book[description]', 'Description' %>
+      <%= text_field_tag 'book[description]', @book.description, class: "form-control"  %>
+    </div>
 
-    <%= label_tag 'book[isbn_number]', 'ISBN Number' %>
-    <%= text_field_tag 'book[isbn_number]', @book.isbn_number  %>
+    <div class="form-group">
+      <%= label_tag 'book[isbn_number]', 'ISBN Number' %>
+      <%= text_field_tag 'book[isbn_number]', @book.isbn_number, class: "form-control"  %>
+    </div>
 
-    <%= submit_tag "Save" %>
+    <div class="form-group">
+      <%= label_tag 'book[author]', 'Author' %>
+      <%= text_field_tag 'book[author]', @book.author, class: "form-control"  %>
+    </div>
+
+    <%= submit_tag "Save", class: "btn btn-primary" %>
   <% end %>
 </div>

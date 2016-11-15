@@ -31,4 +31,10 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     assert_equal "It's really good", Book.last.description
   end
 
+  test "can delete a specific book" do
+    enders_game = Book.create!(name: "Ender's Game", description: "My fave")
+    delete delete_book_path(enders_game.id)
+    refute Book.find_by(id: enders_game.id)
+  end
+
 end
