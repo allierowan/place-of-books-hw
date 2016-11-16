@@ -1,0 +1,11 @@
+<div class="container-fluid">
+  <% @reservations.each do |reservation| %>
+    <h4>Name: <%= link_to reservation.name, reservation_path(reservation.id)%></h4>
+    <h5>Book: <%= reservation.book.name %></h5>
+    <p class="well">
+      Due at: <%= reservation.due_date %>
+      <br>
+      Overdue: <%= reservation.overdue %>
+    </p>
+  <% end %>
+</div>

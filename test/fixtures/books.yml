@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyText
-  author: MyString
-  isbn_number: MyString
-  description: MyText
+among_others:
+  name: Among Others
+  author: Joe Walton
+  isbn_number: 133432
+  description: Magical realism
 
-two:
-  name: MyText
-  author: MyString
-  isbn_number: MyString
-  description: MyText
+dune:
+  name: Dune
+  author: Frank Herbert
+  isbn_number: 9472391
+  description: Giant worms

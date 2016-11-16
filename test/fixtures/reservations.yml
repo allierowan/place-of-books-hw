@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  book: among_others
+  name: Allie Rowan
+  due_date: 2016-11-16
+  overdue: false
+
+two:
+  book: dune
+  name: Ender
+  due_date: 2016-11-16
+  overdue: false
