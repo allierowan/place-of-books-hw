@@ -20,7 +20,7 @@
       <dd>
         <%= @reservation.returned_at %>
       </dd>
-      <% if @reservation.due_date < Date.today  && reservation.returned_at == nil%>
+      <% if @reservation.due_date < Date.today  && @reservation.returned_at == nil%>
         <dd class="overdue-warning">
           THIS BOOK IS OVERDUE
         </dd>
