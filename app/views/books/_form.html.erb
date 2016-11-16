@@ -1,0 +1,24 @@
+<%= form_for @book do |f| %>
+  <div class="form-group">
+    <%= f.label :name, "Title" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :author %>
+    <%= f.text_field :author, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :isbn_number, "ISBN Number" %>
+    <%= f.text_field :isbn_number, class: "form-control" %>
+  </div>
+
+  <%= f.submit "Save", class: "btn btn-primary" %>
+
+<% end %>

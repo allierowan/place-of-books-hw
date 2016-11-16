@@ -1,2 +1,34 @@
-<h1>Reservations#show</h1>
-<p>Find me in app/views/reservations/show.html.erb</p>
+<div class="container-fluid">
+  <h1><%= @reservation.book.name %> <small>reserved by <%= @reservation.name %></small></h1>
+  <p>
+    <dl>
+      <dt>
+        Reserved on:
+      </dt>
+      <dd>
+        <%= @reservation.created_at %>
+      </dd>
+      <dt>
+        Due on:
+      </dt>
+      <dd>
+        <%= @reservation.due_date %>
+      </dd>
+      <dt>
+        Returned on:
+      </dt>
+      <dd>
+        <%= @reservation.returned_at %>
+      </dd>
+      <% if @reservation.overdue %>
+        <dd class="overdue-warning">
+          THIS BOOK IS OVERDUE
+        </dd>
+      <% end %>
+    </dl>
+  </p>
+  <div class="clearfix">
+    <%= link_to "Edit this reservation", edit_reservation_path(@reservation.id), class: "btn btn-primary"%>
+    <%= link_to "Delete reservation", book_path(@reservation.id), class: "btn btn-danger", method: :delete %>
+  </div>
+</div>
