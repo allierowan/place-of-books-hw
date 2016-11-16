@@ -14,7 +14,7 @@ book2 = Book.create(name: "Lolita", author: "Vladimir Nabokov", description: "Hu
   Book.create(name: FFaker::Book.title, description: FFaker::Book.description, isbn_number: FFaker::Book.isbn, author: FFaker::Book.author)
 end
 
-book.reservations.create(name: FFaker::Name.name, due_date: Date.tomorrow, overdue: false)
-book2.reservations.create(name: FFaker::Name.name, due_date: Date.tomorrow, overdue: false)
-book.reservations.create(name: FFaker::Name.name, due_date: Date.tomorrow, overdue: false)
-book2.reservations.create(name: FFaker::Name.name, due_date: Date.tomorrow, overdue: false)
+book.reservations.create(name: FFaker::Name.name, due_date: Date.tomorrow)
+book2.reservations.create(name: FFaker::Name.name, due_date: Date.tomorrow)
+book.reservations.create(name: FFaker::Name.name, due_date: Date.tomorrow)
+book2.reservations.create(name: FFaker::Name.name, due_date: Date.tomorrow)

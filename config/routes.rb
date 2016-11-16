@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
 
   resources :reservations do
-    collection do
+    member do
+      patch '/return', controller: :reservations, action: :return
     end
   end
 
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
       get '/reservations', controller: :books, action: :books_reservations
       get '/reservations/new', controller: :books, action: :reserve_book
       post '/reservations', controller: :books, action: :create_reservation
+      patch '/reservations/:reservation_id/return', controller: :books, action: :reservation_return, as: :return_reservation
     end
 
     collection do

@@ -8,7 +8,7 @@ class ReservationsController < ApplicationController
   end
 
   def new
-    @reservation = Reservation.new
+    @reservation = Reservation.new(due_date: Date.today + 5)
   end
 
   def create
@@ -38,7 +38,12 @@ class ReservationsController < ApplicationController
     redirect_to reservations_path
   end
 
+  def return
+    Reservation.find(params["id"]).return!
+    redirect_to reservation_path
+  end
+
   def reservation_params
-    params.require(:reservation).permit(:name, :due_date, :book_id, :overdue)
+    params.require(:reservation).permit(:name, :due_date, :book_id)
   end
 end

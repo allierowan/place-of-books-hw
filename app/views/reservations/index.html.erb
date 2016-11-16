@@ -5,7 +5,11 @@
     <p class="well">
       Due at: <%= reservation.due_date %>
       <br>
-      Overdue: <%= reservation.overdue %>
+      Returned at: <%= reservation.returned_at %>
+      <br>
+      <% if reservation.due_date < Date.today && reservation.returned_at == nil %>
+        <span class="overdue-warning">THIS BOOK IS OVERDUE</span>
+      <% end %>
     </p>
   <% end %>
 </div>

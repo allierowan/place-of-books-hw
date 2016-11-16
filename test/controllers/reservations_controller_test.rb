@@ -15,7 +15,7 @@ class ReservationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "can create new reservation" do
-    post reservations_path params: { reservation: { name: "Lord Asriel", book_id: Book.last.id, due_date: Date.tomorrow, overdue: false } }
+    post reservations_path params: { reservation: { name: "Lord Asriel", book_id: Book.last.id, due_date: Date.tomorrow } }
     assert_response :redirect
     assert_equal "Lord Asriel", Reservation.last.name
   end
@@ -41,6 +41,11 @@ class ReservationsControllerTest < ActionDispatch::IntegrationTest
   test "can delete reservation" do
     delete reservation_path(reservations(:one).id)
     refute Reservation.find_by(id: reservations(:one).id)
+  end
+
+  test "can return book for reservation" do
+    patch return_reservation_path(reservations(:one).id)
+    assert Reservation.find(reservations(:one)).returned_at
   end
 
 end

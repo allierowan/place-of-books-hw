@@ -50,7 +50,7 @@ class BooksController < ApplicationController
 
   def reserve_book
     @book = Book.find(params["id"])
-    @reservation = @book.reservations.build()
+    @reservation = @book.reservations.build(due_date: Date.today + 5)
     render :new_reservation
   end
 
@@ -71,5 +71,12 @@ class BooksController < ApplicationController
 
   def reservation_params
     params.require(:reservation).permit(:name, :due_date, :book_id)
+  end
+
+  def reservation_return
+    @book = Book.find(params["id"])
+    @reservation = Reservation.find(params["reservation_id"])
+    @reservation.return!
+    redirect_to reservations_book_path
   end
 end

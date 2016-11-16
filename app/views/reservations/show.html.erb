@@ -20,7 +20,7 @@
       <dd>
         <%= @reservation.returned_at %>
       </dd>
-      <% if @reservation.overdue %>
+      <% if @reservation.due_date < Date.today  && reservation.returned_at == nil%>
         <dd class="overdue-warning">
           THIS BOOK IS OVERDUE
         </dd>
@@ -29,6 +29,9 @@
   </p>
   <div class="clearfix">
     <%= link_to "Edit this reservation", edit_reservation_path(@reservation.id), class: "btn btn-primary"%>
+    <% if @reservation.returned? %>
+      <%= link_to "Mark Book Returned", return_reservation_path(@reservation.id), class: "btn btn-primary", method: :patch %>
+    <% end %>
     <%= link_to "Delete reservation", reservation_path(@reservation.id), class: "btn btn-danger", method: :delete %>
   </div>
 </div>
