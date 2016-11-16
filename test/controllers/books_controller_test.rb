@@ -44,4 +44,21 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     assert_match(/Ender/, response.body)
   end
 
+  test "can get reservations list for book" do
+    get reservations_book_path(books(:among_others).id)
+    assert_response :success
+    assert_match(/Allie Rowan/, response.body)
+  end
+
+  test "can get form to reserve specific book" do
+    get reservations_new_book_path(books(:among_others).id)
+    assert_response :success
+    assert_match(/Reserve Among Others/, response.body)
+  end
+
+  test "can reserve specific book" do
+    post reservations_book_path(books(:among_others).id), params: { reservation: { name: "Peter Wiggin", due_date: Date.tomorrow } }
+    assert_equal "Peter Wiggin", Reservation.last.name
+  end
+
 end

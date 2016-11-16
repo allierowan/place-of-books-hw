@@ -36,6 +36,9 @@
               <%= link_to "New Book", new_book_path %>
             </li>
             <li>
+              <%= link_to "New Reservation", new_reservation_path %>
+            </li>
+            <li>
               <a><%= form_tag search_books_path do %>
                 <%= text_field_tag 'q' %>
                 <%= submit_tag "Search library", class: "btn btn-primary btn-xs" %>

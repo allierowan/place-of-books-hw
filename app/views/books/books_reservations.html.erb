@@ -9,7 +9,18 @@
   <div class="clearfix">
     <%= link_to "Edit this book", edit_book_path(@book.id), class: "btn btn-primary"%>
     <%= link_to "Reserve Book", reservations_new_book_path(@book.id), class: "btn btn-primary", method: :get %>
-    <%= link_to "Show Reservations", reservations_book_path(@book.id), class: "btn btn-primary", method: :get %>
+    <%= link_to "Hide Reservations", book_path(@book.id), class: "btn btn-primary" %>
     <%= link_to "Delete book", book_path(@book.id), class: "btn btn-danger", method: :delete %>
   </div>
+  <article class="reservations-section">
+    <% @book.reservations.each do |reservation| %>
+      <h4>Name: <%= link_to reservation.name, reservation_path(reservation.id)%></h4>
+      <h5>Book: <%= reservation.book.name %></h5>
+      <p class="well">
+        Due at: <%= reservation.due_date %>
+        <br>
+        Overdue: <%= reservation.overdue %>
+      </p>
+    <% end %>
+  </article>
 </div>

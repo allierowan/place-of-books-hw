@@ -29,6 +29,6 @@
   </p>
   <div class="clearfix">
     <%= link_to "Edit this reservation", edit_reservation_path(@reservation.id), class: "btn btn-primary"%>
-    <%= link_to "Delete reservation", book_path(@reservation.id), class: "btn btn-danger", method: :delete %>
+    <%= link_to "Delete reservation", reservation_path(@reservation.id), class: "btn btn-danger", method: :delete %>
   </div>
 </div>

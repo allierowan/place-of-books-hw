@@ -11,6 +11,15 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.new
   end
 
+  def create
+    @reservation = Reservation.new(reservation_params)
+    if @reservation.save
+      redirect_to reservations_path
+    else
+      render :new
+    end
+  end
+
   def edit
     @reservation = Reservation.find(params["id"])
   end
