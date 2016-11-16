@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require 'ffaker'
+
+10.times do
+  Book.create(name: FFaker::Book.title, description: FFaker::Book.description, isbn_number: FFaker::Book.isbn, author: FFaker::Book.author)
+end
