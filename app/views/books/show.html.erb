@@ -9,8 +9,6 @@
   </p>
   <div class="clearfix">
     <%= link_to "Edit this book", edit_book_path(@book.id), class: "btn btn-primary"%>
-    <%= form_tag book_path(@book.id), method: :delete do %>
-      <%= submit_tag "Delete book", class: "btn btn-danger" %>
-    <% end %>
+    <%= link_to "Delete book", book_path(@book.id), class: "btn btn-danger", method: :delete %>
   </div>
 </div>

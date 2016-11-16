@@ -8,7 +8,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should get new" do
-    get books_new_path
+    get new_book_path
     assert_response :success
     assert_match(/Title/, response.body)
   end

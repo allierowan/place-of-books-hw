@@ -2,10 +2,12 @@
 
 one:
   name: MyText
+  author: MyString
   isbn_number: MyString
   description: MyText
 
 two:
   name: MyText
+  author: MyString
   isbn_number: MyString
   description: MyText

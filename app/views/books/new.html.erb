@@ -5,27 +5,28 @@
   <% @book.errors.full_messages.each do |error| %>
     <%= error %>
   <% end %>
-  <%= form_tag books_path do %>
+  <%= form_for @book do |f| %>
     <div class="form-group">
-      <%= label_tag 'book[name]', 'Book Title' %>
-      <%= text_field_tag 'book[name]', @book.name, class: "form-control" %>
+      <%= f.label :name, "Title" %>
+      <%= f.text_field :name, class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= label_tag 'book[author]', 'Author' %>
-      <%= text_field_tag 'book[author]', @book.author, class: "form-control"  %>
+      <%= f.label :author %>
+      <%= f.text_field :author, class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= label_tag 'book[description]', 'Description' %>
-      <%= text_area_tag 'book[description]', @book.description, class: "form-control"  %>
+      <%= f.label :description %>
+      <%= f.text_field :description, class: "form-control" %>
     </div>
 
     <div class="form-group">
-      <%= label_tag 'book[isbn_number]', 'ISBN Number' %>
-      <%= text_field_tag 'book[isbn_number]', @book.isbn_number, class: "form-control"  %>
+      <%= f.label :isbn_number, "ISBN Number" %>
+      <%= f.text_field :isbn_number, class: "form-control" %>
     </div>
 
-    <%= submit_tag "Save", class: "btn btn-primary" %>
+    <%= f.submit "Save", class: "btn btn-primary" %>
+
   <% end %>
 </div>
