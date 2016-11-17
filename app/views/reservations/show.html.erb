@@ -28,10 +28,10 @@
     </dl>
   </p>
   <div class="clearfix">
-    <%= link_to "Edit this reservation", edit_reservation_path(@reservation.id), class: "btn btn-primary"%>
+    <%= link_to "Edit this reservation", edit_book_reservation_path(@reservation.book.id, @reservation.id), class: "btn btn-primary"%>
     <% if @reservation.returned? %>
-      <%= link_to "Mark Book Returned", return_reservation_path(@reservation.id), class: "btn btn-primary", method: :patch %>
+      <%= link_to "Mark Book Returned", return_book_reservation_path(@reservation.book.id, @reservation.id), class: "btn btn-primary", method: :patch %>
     <% end %>
-    <%= link_to "Delete reservation", reservation_path(@reservation.id), class: "btn btn-danger", method: :delete %>
+    <%= link_to "Delete reservation", book_reservation_path(@reservation.book.id, @reservation.id), class: "btn btn-danger", method: :delete %>
   </div>
 </div>

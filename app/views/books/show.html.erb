@@ -8,8 +8,8 @@
   </p>
   <div class="clearfix">
     <%= link_to "Edit this book", edit_book_path(@book.id), class: "btn btn-primary"%>
-    <%= link_to "Reserve Book", reservations_new_book_path(@book.id), class: "btn btn-primary", method: :get %>
-    <%= link_to "Show Reservations", reservations_book_path(@book.id), class: "btn btn-primary", method: :get %>
+    <%= link_to "Reserve Book", new_book_reservation_path(@book.id), class: "btn btn-primary", method: :get %>
+    <%= link_to "Show Reservations", book_reservations_path(@book.id), class: "btn btn-primary", method: :get %>
     <%= link_to "Delete book", book_path(@book.id), class: "btn btn-danger", method: :delete %>
   </div>
 </div>

@@ -1,8 +1,8 @@
 <div class="container-fluid">
   <h1>Add Book Reservation</h1>
   <p>Fill out the information regarding this reservation</p>
-  <% @reservation.errors.full_messages.each do |error| %>
-    <%= error %>
-  <% end %>
-  <%= render 'form' %>
+    <% @reservation.errors.full_messages.each do |error| %>
+      <%= error %>
+    <% end %>
+  <%= render 'new_reservation_form' %>
 </div>
